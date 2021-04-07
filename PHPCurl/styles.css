@@ -1,0 +1,40 @@
+form {
+    margin: 10px;
+}
+
+.url {
+    width: 100%;
+}
+
+.smallgrey {
+    color: grey;
+    font-size: 7px;
+}
+
+p {
+    display: inline;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
+    margin-right: 6px;
+    width: 5%;
+}
+
+.textbox {
+    position: relative;
+    width: 95%;
+    font-size: 50%;
+    height: 20px;
+    border-radius: 2.5px;
+    border: 1px solid black;
+}
+
+.submitButton {
+    display: block;
+    color: white;
+    background-color: rgb(27, 149, 246);
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    height: 35px;
+    margin-top: 30px;
+}
