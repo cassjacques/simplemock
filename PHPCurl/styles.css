@@ -1,15 +1,87 @@
-.header {
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+nav {
     background-color: rgb(228, 229, 230);
+    width: 100%;
+}
+
+.header {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px 0 12px 10px;
+    line-height: 0;
+}
+
+.header * {
+    padding: 0;
+    margin: 0;
 }
 
 .title {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    letter-spacing: .5px;
+    font-size: 22px;
+    line-height: 26px;
+    word-spacing: 1px;
+}
+
+.subheader {
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 26px;
+}
+
+.middle {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.steps {
+    margin: 20px 0 40px 5px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.steps ol {
+    font-size: 11px;
+    line-height: 17px;
+    color:rgb(166, 167, 168);
+    padding-inline-start: 13px;
+}
+
+.instructions { 
+    font-weight: 400;
+    margin: 0;
+}
+
+.video {
+    height: 160px;
+    width: 260px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.assets {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 10px;
+}
+
+.assetsText {
+    font-size: 12px;
 }
 
 .urlForm  {
-    max-width: 950px;
-    min-width: 650px;
+    max-width: 600px;
     margin: 0 auto;
+    padding: 0 0 10px 0;
 }
 
 form {
@@ -19,14 +91,14 @@ form {
 .urlBox {
     width: 7%;
     float: left;
-    line-height: 50px;
+    line-height: 46px;
     clear: both;
 }
 
 p {
     display: inline;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 25px;
+    font-size: 23px;
     width: 100%;
 }
 
@@ -35,28 +107,32 @@ p {
     overflow: hidden;
     float: right;
     margin-bottom: 5%;
+    line-height: 14px;
 }
 
 .smallgrey {
-    color: grey;
+    color: rgb(166, 167, 168);
     font-size: 7px;
 }
 
 .textbox {
-    width: 99%;
-    font-size: 50%;
-    height: 20px;
+    width: 98%;
+    font-size: 8px;
+    height: 16px;
     border-radius: 2.5px;
-    border: 1px solid black;
+    border: 1px solid rgb(166, 167, 168);
+    padding-left: 0 10px;
 }
 
 .submitButton {
     display: block;
     color: white;
+    font-size: 11px;
+    font-weight: 700;
     background-color: rgb(27, 149, 246);
     border-radius: 15px;
     border: none;
     width: 100%;
-    height: 35px;
+    height: 30px;
     margin-top: 30px;
 }

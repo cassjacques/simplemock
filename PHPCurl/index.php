@@ -5,13 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap" rel="stylesheet">
+    <title>SimpleMock</title>
 </head>
 <body>
-
-<div class=nav>
 
 <?php
 $website = "";
@@ -42,11 +39,28 @@ function formAction($sitename) {
 }
 
 $form = '
-<div class="header">
-    <i class="far fa-times-circle"></i>
-    <h1 class="title">Simple Mock</h1>
-    <p class="subheader">Force ad creatives on any website</p>
+<nav>
+    <div class="header">
+        <h2 class="title">Simple Mock</h2>
+        <br>
+        <p class="subheader">Force ad creatives on any website</p>
+    </div>
+</nav>
+
+<div class="middle">
+    <div class="steps">
+        <h1 class="instructions">Instructions</h1>
+            <ol>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+            </ol>
+        </div>
+        <img class="video" src="video-comingsoon.jpg" alt="video">
+    </div>
 </div>
+
 
 
 <div class="urlForm">
@@ -59,7 +73,7 @@ $form = '
         <br>
         <input class="textbox" placeholder="https://www.site.com" type="text" name="website">
     </div>
-    <input  class="submitButton" type="submit" name="submit" value="Submit"></form>
+    <input class="submitButton" type="submit" name="submit" value="Submit"></form>
 </div>';
 
 if ($website) {
