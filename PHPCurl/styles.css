@@ -1,9 +1,40 @@
+.header {
+    background-color: rgb(228, 229, 230);
+}
+
+.title {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.urlForm  {
+    max-width: 950px;
+    min-width: 650px;
+    margin: 0 auto;
+}
+
 form {
     margin: 10px;
 }
 
-.url {
+.urlBox {
+    width: 7%;
+    float: left;
+    line-height: 50px;
+    clear: both;
+}
+
+p {
+    display: inline;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
     width: 100%;
+}
+
+.nonUrl {
+    width: 92%;
+    overflow: hidden;
+    float: right;
+    margin-bottom: 5%;
 }
 
 .smallgrey {
@@ -11,17 +42,8 @@ form {
     font-size: 7px;
 }
 
-p {
-    display: inline;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 25px;
-    margin-right: 6px;
-    width: 5%;
-}
-
 .textbox {
-    position: relative;
-    width: 95%;
+    width: 99%;
     font-size: 50%;
     height: 20px;
     border-radius: 2.5px;
