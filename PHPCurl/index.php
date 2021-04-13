@@ -78,7 +78,7 @@
     async function uploadFile() {
     let formData = new FormData(); 
     formData.append("file", fileupload.files[0]);
-    await fetch(/upload.php; {
+    await fetch(//WHERE DOES IT GO//; {
         method: "POST", 
         body: formData
     }); 
@@ -93,7 +93,7 @@
     async function uploadFile() {
     let formData = new FormData(); 
     formData.append("file", fileupload.files[0]);
-    await fetch(/upload.php; {
+    await fetch(//WHERE DOES IT GO//; {
         method: "POST", 
         body: formData
     }); 
@@ -108,7 +108,7 @@
     async function uploadFile() {
     let formData = new FormData(); 
     formData.append("file", fileupload.files[0]);
-    await fetch(/upload.php; {
+    await fetch(//WHERE DOES IT GO//; {
         method: "POST", 
         body: formData
     }); 
