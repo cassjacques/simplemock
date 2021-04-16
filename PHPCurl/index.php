@@ -74,23 +74,23 @@
     <div class="boxes">
 
         <div class="box">Horizontal
-            <form method="POST" action="upload.php" enctype="multipart/form-data">
-                <input type="file" id="horizontal-upload" name="horizontalUpload">
+            <form class="boxForm" method="POST" action="upload.php" enctype="multipart/form-data">
+                <input class="chooseFile" type="file" id="horizontal-upload" name="horizontalUpload">
                 <input class="file-upload" type="submit" name="horizontaluploadBtn" value="Upload" />
             </form>
         </div>
 
         <div class="box">Vertical
-            <form method="POST" action="upload.php" enctype="multipart/form-data">
-                <input type="file" id="vertical-upload" name="verticalUpload">
+            <form class="boxForm" method="POST" action="upload.php" enctype="multipart/form-data">
+                <input class="chooseFile" type="file" id="vertical-upload" name="verticalUpload">
                 <input class="file-upload" type="submit" name="verticaluploadBtn" value="Upload" />
             </form>
         </div>
 
 
         <div class="box">Mobile
-            <form method="POST" action="upload.php" enctype="multipart/form-data">
-                <input type="file" id="mobile-upload" name="mobileUpload">
+            <form class="boxForm" method="POST" action="upload.php" enctype="multipart/form-data">
+                <input class="chooseFile" type="file" id="mobile-upload" name="mobileUpload">
                 <input class="file-upload" type="submit" name="mobileuploadBtn" value="Upload" />
             </form>
         </div>
@@ -190,6 +190,11 @@
                 }
 
                 // TO DO: add "natural size" of image to placeholder
+                function placeholderSize(){
+                    var placeholder = document.querySelector("#details");
+                    var realWidth = placeholder.naturalWidth;
+                    var realHeight = placeholder.naturalHeight;
+                }
             }
 
 
