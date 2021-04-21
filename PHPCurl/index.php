@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
     <title>SimpleMock</title>
 </head>
 
@@ -44,7 +45,7 @@
 
     $form = '
    
-    <nav>
+<nav>
     <div class="header">
         <h2 class="title">Simple Mock</h2>
         <br>
@@ -67,29 +68,32 @@
 </div>
 
 <div class="assets">
-<form id="assetsForm" class="boxForm" method="POST" action="upload.php" enctype="multipart/form-data">
+    <form id="assetsForm" class="boxForm" method="POST" action="upload.php" enctype="multipart/form-data">
 
-    <h1 class="assetsTitle">Assets</h1>
-    <p class="assetsText">Selected items will be featured on website</p>
+        <h1 class="assetsTitle">Assets</h1>
+        <p class="assetsText">Selected items will be featured on website</p>
 
-    <div class="boxes">
-        <div class="box">Horizontal
-            <input type="file" id="horizontal-upload" name="horizontalUpload">
-            <label for="horizontal-upload">Upload file</label>
+        <div class="boxes">
+            <div class="box"><div class="boxlabel">Leaderboard</div>
+                <div class="tooltip"><i class="far fa-question-circle"></i><span class="tooltiptext">[300x250], [300x600], [160x600]</span></div>
+                <input type="file" id="horizontal-upload" name="horizontalUpload">
+                <label for="horizontal-upload">Upload file</label>
+            </div>
+
+            <div class="box"><div class="boxlabel">Box</div>
+                <div class="tooltip"><i class="far fa-question-circle"></i><span class="tooltiptext">[970x250], [728x90], [970x90]</span></div>
+                <input type="file" id="vertical-upload" name="verticalUpload">
+                <label for="vertical-upload">Upload file</label>
+            </div>
+
+            <div class="box"><div class="boxlabel">Leaderboard (mobile)</div>
+                <div class="tooltip"><i class="far fa-question-circle"></i><span class="tooltiptext">[300x50], [320x50]</span></div>
+                <input type="file" id="mobile-upload" name="mobileUpload">
+                <label for="mobile-upload">Upload file</label>
+            </div>
         </div>
-        
-        <div class="box">Vertical
-            <input type="file" id="vertical-upload" name="verticalUpload" >
-            <label for="vertical-upload">Upload file</label>
-        </div>
 
-        <div class="box">Mobile
-            <input type="file" id="mobile-upload" name="mobileUpload" >
-            <label for="mobile-upload">Upload file</label>
-        </div>
-    </div>
-
-    <div class="urlForm">
+        <div class="urlForm">
             <div class="urlBox">
                 <p>URL</p>
             </div>
@@ -99,46 +103,46 @@
                 <input class="textbox" placeholder="https://www.site.com" type="text" name="website">
             </div>
 
-            <button class="submitButton" >Submit</button>
-            </form>
-            </div>
-            <script>
-            var myForm = document.getElementById("assetsForm");  
-            var myFiles = [
-                document.getElementById("horizontal-upload"),
-                document.getElementById("vertical-upload"),
-                document.getElementById("mobile-upload")
-            ];
-        
-            myForm.onsubmit = function(event)    { 
-                event.preventDefault();
-                var formData = new FormData();
+            <button class="submitButton">Submit</button>
+    </form>
+</div>
+<script>
+    var myForm = document.getElementById("assetsForm");
+    var myFiles = [
+        document.getElementById("horizontal-upload"),
+        document.getElementById("vertical-upload"),
+        document.getElementById("mobile-upload")
+    ];
 
-                function attachFile(f) {
-                    if (!f.files[0] || !f.files[0].type.match("image.*")) {
-                        return;
-                    }     
-                    formData.append(f.id, f.files[0], f.files[0].name);
-                }
-                myFiles.forEach(file => attachFile(file));
+    myForm.onsubmit = function (event) {
+        event.preventDefault();
+        var formData = new FormData();
 
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "upload.php", true);
-        
-                xhr.onload = function () {
-                    if (xhr.status == 200) {
-                        let myURL = document.querySelector("input[name=website]").value;
-                        if (myURL.length || myURL !== "https://www.site.com") {
-                            window.open("index.php?website="+myURL, "_blank");
-                        } else {
-                            alert("Invalid URL");
-                        }
-                    }
-                };
-    
-                xhr.send(formData);
+        function attachFile(f) {
+            if (!f.files[0] || !f.files[0].type.match("image.*")) {
+                return;
             }
-        </script>';
+            formData.append(f.id, f.files[0], f.files[0].name);
+        }
+        myFiles.forEach(file => attachFile(file));
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "upload.php", true);
+
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                let myURL = document.querySelector("input[name=website]").value;
+                if (myURL.length || myURL !== "https://www.site.com") {
+                    window.open("index.php?website=" + myURL, "_blank");
+                } else {
+                    alert("Invalid URL");
+                }
+            }
+        };
+
+        xhr.send(formData);
+    }
+</script>';
 
 
     $extraJS = '
