@@ -116,23 +116,19 @@ nav {
     margin: 10px;
 }
 
-.chooseFile {
-    font-size: 10px;
-    width: 137px;
+#horizontal-upload, #vertical-upload, #mobile-upload {
+    display: none;
 }
 
-.file-upload {
+label {
     display: block;
-    background-color: rgb(27, 149, 246);
     color: white;
-    border: none;
-    padding: 0;
-    border-radius: 2px;
-    height: 16px;
-    width: 82px;
-    font-size: 8px;
-    margin-left: 40px;
-    margin-top: 5px;
+    margin: 10px auto;
+    padding: 4px;
+    background-color: rgb(79, 161, 236);
+    border-radius: 3px;
+    width: 69px;
+    font-size: 7px;
 }
 
 /*URLFORM*/
