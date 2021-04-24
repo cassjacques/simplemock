@@ -1,4 +1,13 @@
 <?php
+require_once("lib/Tinify/Exception.php");
+require_once("lib/Tinify/ResultMeta.php");
+require_once("lib/Tinify/Result.php");
+require_once("lib/Tinify/Source.php");
+require_once("lib/Tinify/Client.php");
+require_once("lib/Tinify.php");
+
+\Tinify\setKey("zJXJVS2399VThMRMQRpszCH9T2JXKq8P");
+
 session_start();
 $uploadFileDir = './uploaded_files/';
 $allowedfileExtensions = array('jpg', 'jpeg', 'gif', 'png');
@@ -16,6 +25,8 @@ if (isset($_FILES['horizontal-upload']) && $_FILES['horizontal-upload']['error']
     $dest_path1 = $uploadFileDir . $newFileName1;
     if(move_uploaded_file($fileTmpPath1, $dest_path1)) {
       $message ='File 1 is successfully uploaded.';
+      $source = \Tinify\fromFile($dest_path1);
+      $source->toFile('uploaded_files/horizontal.png');
     }
   }
 }
@@ -33,6 +44,8 @@ if (isset($_FILES['vertical-upload']) && $_FILES['vertical-upload']['error'] ===
     $dest_path2 = $uploadFileDir . $newFileName2;
     if(move_uploaded_file($fileTmpPath2, $dest_path2)) {
       $message ='File 2 is successfully uploaded.';
+      $source = \Tinify\fromFile($dest_path2);
+      $source->toFile('uploaded_files/vertical.png');
     }
   }
 }
@@ -50,6 +63,8 @@ if (isset($_FILES['mobile-upload']) && $_FILES['mobile-upload']['error'] === UPL
     $dest_path3 = $uploadFileDir . $newFileName3;
     if(move_uploaded_file($fileTmpPath3, $dest_path3)) {
       $message ='File 3 is successfully uploaded.';
+      $source = \Tinify\fromFile($dest_path3);
+      $source->toFile('uploaded_files/mobile.png');
     }
   }
 }

@@ -75,13 +75,13 @@
 
         <div class="boxes">
             <div class="box"><div class="boxlabel">Leaderboard</div>
-                <div class="tooltip"><i class="far fa-question-circle"></i><span class="tooltiptext">[300x250], [300x600], [160x600]</span></div>
+                <div class="tooltip"><i class="far fa-question-circle"></i><span class="tooltiptext">[970x250], [728x90], [970x90]</span></div>
                 <input type="file" id="horizontal-upload" name="horizontalUpload">
                 <label for="horizontal-upload">Upload file</label>
             </div>
 
             <div class="box"><div class="boxlabel">Box</div>
-                <div class="tooltip"><i class="far fa-question-circle"></i><span class="tooltiptext">[970x250], [728x90], [970x90]</span></div>
+                <div class="tooltip"><i class="far fa-question-circle"></i><span class="tooltiptext">[300x250], [300x600], [160x600]</span></div>
                 <input type="file" id="vertical-upload" name="verticalUpload">
                 <label for="vertical-upload">Upload file</label>
             </div>
@@ -147,6 +147,55 @@
 
     $extraJS = '
     <script>
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    
+    function extractHostname(url) {
+        var hostname;
+        if (url.indexOf("//") > -1) {
+            hostname = url.split("/")[2];
+        } else {
+            hostname = url.split("/")[0];
+        }
+        hostname = hostname.split(":")[0];
+        hostname = hostname.split("?")[0];
+        return hostname;
+    }
+    
+    var parentURL = getParameterByName("website");
+    
+    function getPosition(string, subString, index) {
+      return string.split(subString, index).join(subString).length;
+    }
+    
+    function replaceHost(url) {
+        url = url.substring(getPosition(url, "/", 3), url.length);
+        console.log("Attempting to fix CSS hostnames.");
+
+        // TO DO -- make sure original url has HTTP
+        return parentURL + url;
+    }
+
+    var styleSheets = document.querySelectorAll("link");
+    
+    function fixStyles(sheet) {
+        console.log("Sheet.href (unmodified)");
+        console.log(sheet.href);
+        if (extractHostname(parentURL) != extractHostname(sheet.href)) {
+            sheet.href = replaceHost(sheet.href);
+            console.log("sheet.href (modified)");
+            console.log(sheet.href);
+        }
+    }
+
+    styleSheets.forEach(ss => fixStyles(ss));
+
         (function () {
             console.log("---------");
             console.log("SimpleMock: Started");
@@ -183,6 +232,11 @@
                 }
 
             ];
+            
+            
+            
+
+            
 
             function replaceIframe(iframe) {
                 if (!iframe || iframe.width < 1){
@@ -197,6 +251,10 @@
 
                 function testOrientations(ori) {
                     ori.sizes.forEach(function(s){
+                        if(!testSize){
+                            testSize = iframe.width + ", " + iframe.height;
+                        }
+
                         if(testSize.includes(s)){
                             name.push(ori.name);
                         }
@@ -219,7 +277,7 @@
                 }
 
                 var placeholder = document.createElement("img");
-                placeholder.src = "uploaded_files/" + name[0] + ".jpg";
+                placeholder.src = "uploaded_files/" + name[0] + ".png ";
                 placeholder.classList.add("simpleMock--ad");
 
                 iframe.parentNode.appendChild(placeholder);
