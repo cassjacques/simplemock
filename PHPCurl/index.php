@@ -14,6 +14,7 @@
 <body>
 
     <?php
+    
     $website = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
