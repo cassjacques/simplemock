@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link href="assets/css/phppot-style.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/user-registration.css" type="text/css" rel="stylesheet" />
     <title>SimpleMock</title>
 </head>
 
@@ -44,17 +46,27 @@
         echo $response;
     }
 
-    $form = '
-   
-<nav>
-    <div class="header">
-        <h2 class="title">Simple Mock</h2>
-        <br>
-        <p class="subheader">Force ad creatives on any website</p>
-    </div>
-</nav>
+    $header_loggedin = '
+    <div class="phppot-container">
+        <div class="page-header">
+            <span class="login-signup"><a href="./user-registration/logout.php">Logout</a></span>
+        </div>
+    </div>';
 
-<div class="middle">
+    $header_signin = '
+        <li><a href="./user-registration/login.php">login</a></li>
+        <li><a href="./user-registration/user-registration.php">signup</a></li>';
+
+    $form = '
+    <nav>
+        <div class="header">
+            <h2 class="title">Simple Mock</h2>
+            <br>
+            <p class="subheader">Force ad creatives on any website</p>
+        </div>
+    </nav>
+
+    <div class="middle">
     <div class="steps">
         <h1 class="instructions">Instructions</h1>
         <ol>
@@ -304,10 +316,23 @@
         })();
     </script>';
 
+
+
     if ($website) {
         formAction($website);
         echo $extraJS;
     } else {
+        session_start();
+        if (isset($_SESSION["username"])) {
+            $username = $_SESSION["username"];
+            echo "Welcome 
+            $_SESSION[username]";
+            echo $header_loggedin;
+        } else {
+            session_unset();
+            session_write_close();
+            echo $header_signin;
+        }
         echo $form;
     }
     ?>
