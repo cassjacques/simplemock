@@ -47,15 +47,11 @@
     }
 
     $header_loggedin = '
-    <div class="phppot-container">
-        <div class="page-header">
-            <span class="login-signup"><a href="./user-registration/logout.php">Logout</a></span>
-        </div>
-    </div>';
+        <a href="./user-registration/logout.php">logout</a>';
 
     $header_signin = '
-        <li><a href="./user-registration/login.php">login</a></li>
-        <li><a href="./user-registration/user-registration.php">signup</a></li>';
+        <span class="welcomeMessage"><a href="./user-registration/login.php">login</a>
+        <a href="./user-registration/user-registration.php">signup</a></span>';
 
     $form = '
     <nav>
@@ -325,9 +321,11 @@
         session_start();
         if (isset($_SESSION["username"])) {
             $username = $_SESSION["username"];
-            echo "Welcome 
-            $_SESSION[username]";
-            echo $header_loggedin;
+            echo "<span class=welcomeMessage>
+            Welcome 
+            $_SESSION[username]
+            $header_loggedin
+            </span>";
         } else {
             session_unset();
             session_write_close();
