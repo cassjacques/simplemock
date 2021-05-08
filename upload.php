@@ -1,10 +1,10 @@
 <?php
-require_once("lib/Tinify/Exception.php");
-require_once("lib/Tinify/ResultMeta.php");
-require_once("lib/Tinify/Result.php");
-require_once("lib/Tinify/Source.php");
-require_once("lib/Tinify/Client.php");
-require_once("lib/Tinify.php");
+require_once("tinifyLib/Tinify/Exception.php");
+require_once("tinifyLib/Tinify/ResultMeta.php");
+require_once("tinifyLib/Tinify/Result.php");
+require_once("tinifyLib/Tinify/Source.php");
+require_once("tinifyLib/Tinify/Client.php");
+require_once("tinifyLib/Tinify.php");
 
 \Tinify\setKey("zJXJVS2399VThMRMQRpszCH9T2JXKq8P");
 

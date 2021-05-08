@@ -25,6 +25,27 @@ nav {
     margin: 0;
 }
 
+.inbuttons, .outbuttons {
+    float: right;
+}
+
+.outbutton {
+    text-decoration: none;
+}
+
+#login-Btn, #signup-Btn, .outbutton, .welcome {
+    background: none;
+    border: none;
+    color: rgb(121, 121, 121);
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 26px;
+}
+
+#login-Btn:hover, #signup-Btn:hover, .outbutton:hover {
+    color: rgb(145, 183, 218);
+}
+
 .title {
     font-weight: 700;
     letter-spacing: .5px;
@@ -39,8 +60,15 @@ nav {
     line-height: 26px;
 }
 
-.welcomeMessage {
-    float: right;
+.loginButton, .signupButton {
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 26px;
+    display: inline-block;
+}
+
+.loginButton:hover, .signupButton:hover {
+    color: rgb(145, 183, 218);
 }
 
 /*INSTRUCTIONS*/
