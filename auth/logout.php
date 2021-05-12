@@ -1,7 +1,11 @@
 <?php
-// clear all the session variables and redirect to index
-session_start();
-session_unset();
-session_write_close();
-$url = "../index.php";
-header("Location: $url");
+
+
+if(isset($_SESSION['user_id']))
+{
+	unset($_SESSION['user_id']);
+
+}
+
+header("Location: /auth/login-modal.php");
+die;
